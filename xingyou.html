@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>保定星佑科技有限公司 - 专业无人机技术与培训</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                        secondary: '#0E2E8B',
+                        accent: '#36CFC9',
+                        dark: '#1D2129',
+                        light: '#F2F3F5'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .hover-lift {
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            .hover-lift:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            }
+            .section-padding {
+                padding-top: clamp(3rem, 8vh, 6rem);
+                padding-bottom: clamp(3rem, 8vh, 6rem);
+            }
+            .fade-in {
+                animation: fadeIn 0.8s ease forwards;
+                opacity: 0;
+            }
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+        }
+    </style>
+</head>
+<body class="font-sans text-dark bg-white">
+    <!-- 导航栏 -->
+    <header id="navbar" class="fixed w-full bg-white/95 shadow-sm z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <!-- 公司Logo和名称 -->
+                <div class="flex items-center">
+                    <img src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/135977e2b47f4650bd7364c9afb34d67.jpg~tplv-a9rns2rl98-24:720:720.image?rcl=20251014102528329B04383C7E53298D69&rk3s=8e244e95&rrcfp=8a172a1a&x-expires=1761013528&x-signature=J9WZhiEUUllbfGpl4bL3JGv4OPA%3D" 
+                         alt="保定星佑科技有限公司logo" 
+                         class="h-10 w-auto mr-3 object-contain transition-transform duration-300 hover:scale-105">
+                    <span class="text-xl font-bold text-primary">保定星佑科技有限公司</span>
+                </div>
+                
+                <!-- 桌面导航 -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-dark hover:text-primary transition-colors font-medium relative group">
+                        首页
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#drone-types" class="text-dark hover:text-primary transition-colors font-medium relative group">
+                        无人机类型
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#applications" class="text-dark hover:text-primary transition-colors font-medium relative group">
+                        行业应用
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#advantages" class="text-dark hover:text-primary transition-colors font-medium relative group">
+                        教学优势
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#teachers" class="text-dark hover:text-primary transition-colors font-medium relative group">
+                        师资力量
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#contact" class="text-dark hover:text-primary transition-colors font-medium relative group">
+                        联系我们
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </nav>
+                
+                <!-- 移动端菜单按钮 -->
+                <button id="menuBtn" class="md:hidden text-dark focus:outline-none">
+                    <i class="fa fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- 移动端导航菜单 -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-3 space-y-3">
+                <a href="#home" class="block text-dark hover:text-primary transition-colors font-medium py-2">首页</a>
+                <a href="#drone-types" class="block text-dark hover:text-primary transition-colors font-medium py-2">无人机类型</a>
+                <a href="#applications" class="block text-dark hover:text-primary transition-colors font-medium py-2">行业应用</a>
+                <a href="#advantages" class="block text-dark hover:text-primary transition-colors font-medium py-2">教学优势</a>
+                <a href="#teachers" class="block text-dark hover:text-primary transition-colors font-medium py-2">师资力量</a>
+                <a href="#contact" class="block text-dark hover:text-primary transition-colors font-medium py-2">联系我们</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://picsum.photos/id/1059/1920/1080" alt="无人机航拍风景" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-dark/50"></div>
+        </div>
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div class="fade-in" style="animation-delay: 0.2s;">
+                <img src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/135977e2b47f4650bd7364c9afb34d67.jpg~tplv-a9rns2rl98-24:720:720.image?rcl=20251014102528329B04383C7E53298D69&rk3s=8e244e95&rrcfp=8a172a1a&x-expires=1761013528&x-signature=J9WZhiEUUllbfGpl4bL3JGv4OPA%3D" 
+                     alt="星佑科技" 
+                     class="w-32 h-32 md:w-40 md:h-40 mx-auto mb-6 object-contain">
+            </div>
+            <h1 class="text-[clamp(2.5rem,6vw,4rem)] font-bold text-white mb-6 leading-tight text-shadow fade-in" style="animation-delay: 0.4s;">
+                专业无人机技术<br>培训与应用服务
+            </h1>
+            <p class="text-[clamp(1rem,2vw,1.25rem)] text-white/90 mb-8 max-w-3xl mx-auto fade-in" style="animation-delay: 0.6s;">
+                保定星佑科技专注于无人机研发、应用与培训，为各行业提供专业解决方案与高素质技术人才
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 fade-in" style="animation-delay: 0.8s;">
+                <a href="#contact" class="bg-primary hover:bg-primary/90 text-white font-medium py-3 px-8 rounded-lg transition-all shadow-lg hover:shadow-primary/30">
+                    咨询课程
+                </a>
+                <a href="#drone-types" class="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-medium py-3 px-8 rounded-lg transition-all border border-white/30">
+                    了解无人机
+                </a>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+            <a href="#drone-types" class="flex flex-col items-center">
+                <span class="mb-2 text-sm">向下滚动</span>
+                <i class="fa fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- 无人机类型 -->
+    <section id="drone-types" class="section-padding bg-light">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-animate">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-dark mb-4">无人机类型介绍</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-lg">我们提供多种类型无人机的培训与应用服务，满足不同行业需求</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 多旋翼无人机 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover-lift scroll-animate">
+                    <div class="h-56 overflow-hidden">
+                        <img src="dxy.jpg" alt="多旋翼无人机" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <img src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/135977e2b47f4650bd7364c9afb34d67.jpg~tplv-a9rns2rl98-24:720:720.image?rcl=20251014102528329B04383C7E53298D69&rk3s=8e244e95&rrcfp=8a172a1a&x-expires=1761013528&x-signature=J9WZhiEUUllbfGpl4bL3JGv4OPA%3D" 
+                                 alt="星佑科技" 
+                                 class="h-6 w-auto mr-2 object-contain">
+                            <h3 class="text-xl font-bold">多旋翼无人机</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            包括四旋翼、六旋翼和八旋翼等，操作灵活，稳定性高，适合航拍、测绘、电力巡检等任务。搭载高清相机和专业传感器，可在复杂环境中完成高精度作业。
+                        </p>
+                        <ul class="text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fa fa-check text-accent mt-1 mr-2"></i>
+                                <span>操作简单，适合新手入门</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check text-accent mt-1 mr-2"></i>
+                                <span>悬停稳定，拍摄精度高</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check text-accent mt-1 mr-2"></i>
+                                <span>可搭载多种专业设备</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 直升无人机 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover-lift scroll-animate" style="animation-delay: 0.2s;">
+                    <div class="h-56 overflow-hidden">
+                        <img src="jswrj.jpg" alt="直升无人机" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <img src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/135977e2b47f4650bd7364c9afb34d67.jpg~tplv-a9rns2rl98-24:720:720.image?rcl=20251014102528329B04383C7E53298D69&rk3s=8e244e95&rrcfp=8a172a1a&x-expires=1761013528&x-signature=J9WZhiEUUllbfGpl4bL3JGv4OPA%3D" 
+                                 alt="星佑科技" 
+                                 class="h-6 w-auto mr-2 object-contain">
+                            <h3 class="text-xl font-bold">直升无人机</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            可垂直起降、无需跑道、地形适应能力强 ，与多旋翼相比，其螺旋桨直径更大，气动效率更高。 被广泛应用在如防灾减灾、搜索音效、交通监管 、资源勘探、国土资源监测、森林防火、气象探测 、农作物估产、管道巡检等领域。
+                        </p>
+                        <ul class="text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fa fa-check text-accent mt-1 mr-2"></i>
+                                <span>续航时间长，可达数小时</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check text-accent mt-1 mr-2"></i>
+                                <span>飞行效率高</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check text-accent mt-1 mr-2"></i>
+                                <span>飞行稳定性高</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 垂直起降无人机 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover-lift scroll-animate" style="animation-delay: 0.4s;">
+                    <div class="h-56 overflow-hidden">
+                        <img src="czqj.jpg" alt="垂直起降无人机" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <img src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/135977e2b47f4650bd7364c9afb34d67.jpg~tplv-a9rns2rl98-24:720:720.image?rcl=20251014102528329B04383C7E53298D69&rk3s=8e244e95&rrcfp=8a172a1a&x-expires=1761013528&x-signature=J9WZhiEUUllbfGpl4bL3JGv4OPA%3D" 
+                                 alt="星佑科技" 
+                                 class="h-6 w-auto mr-2 object-contain">
+                            <h3 class="text-xl font-bold">垂直起降无人机</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">
+                            结合多旋翼和固定翼的优势，无需跑道即可垂直起降，同时具备长续航能力。适用于复杂地形勘测、应急救援、边境巡逻等特殊任务场景。
+                        </p>
+                        <ul class="text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fa fa-check text-accent mt-1 mr-2"></i>
+                                <span>无需跑道，适应多种地形</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check text-accent mt-1 mr-2"></i>
+                                <span>兼具灵活性和长续航优势</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check text-accent mt-1 mr-2"></i>
+                                <span>适合复杂环境作业</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 行业应用 -->
+    <section id="applications" class="section-padding bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-animate">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-dark mb-4">无人机行业应用</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-lg">无人机技术已广泛应用于多个行业，为传统产业带来革新与升级</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="flex scroll-animate">
+                    <div class="mr-6 text-primary text-3xl mt-1">
+                        <i class="fa fa-building"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-3">电力与能源行业</h3>
+                        <p class="text-gray-600 mb-4">
+                            无人机可用于电力线路巡检、变电站巡查、风电设备检查等，能够快速发现设备故障和隐患，提高巡检效率，降低人工成本和安全风险。
+                        </p>
+                        <p class="text-gray-600">
+                            搭载红外热成像相机，可检测线路过热情况；高清摄像头能识别绝缘子破损、导线断股等问题，保障电力系统安全稳定运行。
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="flex scroll-animate" style="animation-delay: 0.1s;">
+                    <div class="mr-6 text-primary text-3xl mt-1">
+                        <i class="fa fa-leaf"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-3">农业与林业</h3>
+                        <p class="text-gray-600 mb-4">
+                            在农业领域，无人机可实现精准植保、播种、施肥等作业；在林业方面，可用于森林资源调查、火灾监测、病虫害防治等工作。
+                        </p>
+                        <p class="text-gray-600">
+                            通过多光谱相机获取作物生长信息，实现精准农业管理；实时监测森林火灾隐患，快速响应火情，减少灾害损失。
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="flex scroll-animate" style="animation-delay: 0.2s;">
+                    <div class="mr-6 text-primary text-3xl mt-1">
+                        <i class="fa fa-road"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-3">测绘与基建</h3>
+                        <p class="text-gray-600 mb-4">
+                            无人机测绘效率高、成本低，可快速生成高精度地形图、三维模型，广泛应用于城市规划、道路建设、矿山测量等领域。
+                        </p>
+                        <p class="text-gray-600">
+                            为工程建设提供精确的地形数据，辅助设计与施工；监测施工进度和质量，确保工程按计划推进；对矿山进行三维建模，优化资源开采。
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="flex scroll-animate" style="animation-delay: 0.3s;">
+                    <div class="mr-6 text-primary text-3xl mt-1">
+                        <i class="fa fa-camera"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-3">航拍与影视</h3>
+                        <p class="text-gray-600 mb-4">
+                            无人机航拍为影视制作、广告拍摄、新闻报道等提供了全新视角，能够捕捉到传统拍摄方式难以实现的画面效果。
+                        </p>
+                        <p class="text-gray-600">
+                            从高空俯瞰壮丽景色，为电影、电视剧提供震撼镜头；为房地产项目拍摄宣传视频，全方位展示楼盘环境；在大型活动中进行空中直播报道。
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="flex scroll-animate" style="animation-delay: 0.4s;">
+                    <div class="mr-6 text-primary text-3xl mt-1">
+                        <i class="fa fa-ambulance"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-3">应急救援</h3>
+                        <p class="text-gray-600 mb-4">
+                            在自然灾害、事故救援等紧急情况下，无人机可快速到达现场，提供实时图像传输，帮助救援人员了解情况，制定救援方案。
+                        </p>
+                        <p class="text-gray-600">
+                            地震、洪水等灾害发生后，快速勘察受灾区域；搜索失踪人员，扩大搜救范围；向被困人员投放急救物资，争取救援时间。
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="flex scroll-animate" style="animation-delay: 0.5s;">
+                    <div class="mr-6 text-primary text-3xl mt-1">
+                        <i class="fa fa-shopping-bag"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-3">物流与配送</h3>
+                        <p class="text-gray-600 mb-4">
+                            无人机配送能够突破地形限制，实现快速货物运输，特别适用于偏远地区、紧急物资运送等场景，提高物流效率。
+                        </p>
+                        <p class="text-gray-600">
+                            为偏远地区配送药品、生活用品；在城市中实现短距离快速送货，缓解交通压力；紧急情况下运输医疗设备和救援物资。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 教学优势与场地展示 -->
+    <section id="advantages" class="section-padding bg-light">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-animate">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-dark mb-4">机构教学优势</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-lg">我们拥有专业的教学场地和先进的教学理念，为学员提供优质培训体验</p>
+            </div>
+            
+            <!-- 教学场地（左）和教学优势（右）布局 -->
+            <div class="flex flex-col lg:flex-row gap-10 items-center">
+                <!-- 左侧：教学场地图片 -->
+                <div class="lg:w-1/2 rounded-xl overflow-hidden shadow-xl hover-lift scroll-animate">
+                    <div class="relative">
+                        <img src="cd3.jpg" alt="教学场地展示" class="w-full h-auto">
+                        <div class="absolute inset-0 bg-gradient-to-t from-dark/60 to-transparent flex items-end">
+                            <div class="p-6 text-white">
+                                <h3 class="text-xl font-bold mb-2">专业教学场地</h3>
+                                <p>配备先进的无人机实训设备和模拟训练系统</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 mt-2">
+                        <img src="jf3.jpg" alt="无人机训练场地" class="w-full h-50 object-cover rounded">
+                        <img src="js.jpg" alt="模拟飞行教室" class="w-full h-50  object-cover rounded">
+                    </div>
+                </div>
+                
+                <!-- 右侧：教学优势文字 -->
+                <div class="lg:w-1/2">
+                    <div class="space-y-6">
+                        <div class="bg-white p-6 rounded-lg shadow-md hover-lift scroll-animate" style="animation-delay: 0.2s;">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4">
+                                    <i class="fa fa-graduation-cap text-primary text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold">权威认证课程</h3>
+                            </div>
+                            <p class="text-gray-600">
+                                课程体系符合国家无人机驾驶员认证标准，学员结业后可直接参加AOPA等权威机构的认证考试，通过率高达95%以上。
+                            </p>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-lg shadow-md hover-lift scroll-animate" style="animation-delay: 0.3s;">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4">
+                                    <i class="fa fa-cogs text-primary text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold">先进教学设备</h3>
+                            </div>
+                            <p class="text-gray-600">
+                                配备多种类型无人机实训设备、飞行模拟器和专业测绘软件，确保学员能够接触到行业前沿技术和设备。
+                            </p>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-lg shadow-md hover-lift scroll-animate" style="animation-delay: 0.4s;">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4">
+                                    <i class="fa fa-users text-primary text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold">小班教学模式</h3>
+                            </div>
+                            <p class="text-gray-600">
+                                采用1:6的师生比，确保每位学员都能获得充分的指导和练习机会，理论与实践相结合，注重实际操作能力培养。
+                            </p>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-lg shadow-md hover-lift scroll-animate" style="animation-delay: 0.5s;">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4">
+                                    <i class="fa fa-briefcase text-primary text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold">就业保障服务</h3>
+                            </div>
+                            <p class="text-gray-600">
+                                与多家无人机应用企业建立合作关系，为优秀学员提供就业推荐服务，帮助学员顺利进入无人机行业发展。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 师资力量 -->
+    <section id="teachers" class="section-padding bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-animate">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-dark mb-4">专业师资力量</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-lg">我们的教师团队拥有丰富的行业经验和教学经验，为学员提供专业指导</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 教师1 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover-lift border border-gray-100 scroll-animate">
+                    <div class="relative">
+                        <img src="4.3.jpg" alt="陈涛老师" class="w-full h-79 object-cover">
+                        <div class="absolute top-4 right-4 bg-primary text-white text-sm font-medium py-1 px-3 rounded-full">
+                            金牌培训讲师
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-1">
+                            <img src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/135977e2b47f4650bd7364c9afb34d67.jpg~tplv-a9rns2rl98-24:720:720.image?rcl=20251014102528329B04383C7E53298D69&rk3s=8e244e95&rrcfp=8a172a1a&x-expires=1761013528&x-signature=J9WZhiEUUllbfGpl4bL3JGv4OPA%3D" 
+                                 alt="星佑科技" 
+                                 class="h-5 w-auto mr-2 object-contain">
+                            <h3 class="text-xl font-bold">陈涛</h3>
+                        </div>
+                        <p class="text-gray-500 mb-4">10 年+无人机研发与教学经验</p>
+                        <p class="text-gray-600 mb-4">
+                            曾主导多款无人机核心部件研发项目，持有CAAC高级教员证书，擅长将复杂的无人机技术原理转化为通俗讲解，注重实战操作教学。
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-light text-dark text-sm py-1 px-3 rounded-full">多旋翼无人机</span>
+                            <span class="bg-light text-dark text-sm py-1 px-3 rounded-full">数据处理</span>
+                            <span class="bg-light text-dark text-sm py-1 px-3 rounded-full">考证辅导</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 教师2 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover-lift border border-gray-100 scroll-animate" style="animation-delay: 0.2s;">
+                    <div class="relative">
+                        <img src="3.3.jpg" alt="班百万老师" class="w-full h-72 object-cover">
+                        <div class="absolute top-4 right-4 bg-primary text-white text-sm font-medium py-1 px-3 rounded-full">
+                            金牌培训讲师
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-1">
+                            <img src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/135977e2b47f4650bd7364c9afb34d67.jpg~tplv-a9rns2rl98-24:720:720.image?rcl=20251014102528329B04383C7E53298D69&rk3s=8e244e95&rrcfp=8a172a1a&x-expires=1761013528&x-signature=J9WZhiEUUllbfGpl4bL3JGv4OPA%3D" 
+                                 alt="星佑科技" 
+                                 class="h-5 w-auto mr-2 object-contain">
+                            <h3 class="text-xl font-bold">班百万</h3>
+                        </div>
+                        <p class="text-gray-500 mb-4">5 年+无人机行业应用经验</p>
+                        <p class="text-gray-600 mb-4">
+                            无人机应用领域专家，服务过10+家企业与机构，熟悉各行业对无人机的实际需求，能针对性设计课程内容，授课风格生动易懂。
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-light text-dark text-sm py-1 px-3 rounded-full">多旋翼无人机</span>
+                            <span class="bg-light text-dark text-sm py-1 px-3 rounded-full">数据处理</span>
+                            <span class="bg-light text-dark text-sm py-1 px-3 rounded-full">考证辅导</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 教师3 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover-lift border border-gray-100 scroll-animate" style="animation-delay: 0.4s;">
+                    <div class="relative">
+                        <img src="5.3.jpg" alt="梁永富老师" class="w-full h-72 object-cover">
+                        <div class="absolute top-4 right-4 bg-primary text-white text-sm font-medium py-1 px-3 rounded-full">
+                            金牌培训讲师
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-1">
+                            <img src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/135977e2b47f4650bd7364c9afb34d67.jpg~tplv-a9rns2rl98-24:720:720.image?rcl=20251014102528329B04383C7E53298D69&rk3s=8e244e95&rrcfp=8a172a1a&x-expires=1761013528&x-signature=J9WZhiEUUllbfGpl4bL3JGv4OPA%3D" 
+                                 alt="星佑科技" 
+                                 class="h-5 w-auto mr-2 object-contain">
+                            <h3 class="text-xl font-bold">梁永富</h3>
+                        </div>
+                        <p class="text-gray-500 mb-4">3 年+无人机认证培训经验</p>
+                        <p class="text-gray-600 mb-4">
+                            持有无人机高级操作与培训认证证书，具备丰富的实战与教学经验，擅长从学员基础与需求出发，制定个性化学习方案。
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-light text-dark text-sm py-1 px-3 rounded-full">多旋翼无人机</span>
+                            <span class="bg-light text-dark text-sm py-1 px-3 rounded-full">数据处理</span>
+                            <span class="bg-light text-dark text-sm py-1 px-3 rounded-full">考证辅导</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section id="contact" class="section-padding bg-primary/5">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-animate">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-dark mb-4">联系我们</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-lg">欢迎咨询无人机培训课程和技术服务，我们将竭诚为您服务</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                <!-- 联系信息 -->
+                <div class="bg-white p-8 rounded-xl shadow-md scroll-animate">
+                    <div class="flex items-center mb-6">
+                        <img src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/135977e2b47f4650bd7364c9afb34d67.jpg~tplv-a9rns2rl98-24:720:720.image?rcl=20251014102528329B04383C7E53298D69&rk3s=8e244e95&rrcfp=8a172a1a&x-expires=1761013528&x-signature=J9WZhiEUUllbfGpl4bL3JGv4OPA%3D" 
+                             alt="星佑科技" 
+                             class="h-6 w-auto mr-2 object-contain">
+                        <h3 class="text-2xl font-bold">联系方式</h3>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                                <i class="fa fa-map-marker text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">公司地址</h4>
+                                <p class="text-gray-600">河北省保定市竞秀区保开技工学校教学楼三层（惠民路与荣美路交叉口西南160米）</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                                <i class="fa fa-phone text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">联系电话</h4>
+                                <p class="text-gray-600">18331124151   13102928253
